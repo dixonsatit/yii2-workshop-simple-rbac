@@ -102,10 +102,9 @@ class UserController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
-        $oldPassword =  $model->password_hash;
         $model->password = $model->password_hash;
 
-        if ($model->load(Yii::$app->request->post()) && $model->validate()) {           
+        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
             if($model->password_hash!=$model->password ){
                  $model->setPassword($model->password);
             }
