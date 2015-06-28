@@ -2,7 +2,7 @@
 
 use yii\helpers\Html;
 use yii\grid\GridView;
-
+use common\models\User;
 /* @var $this yii\web\View */
 /* @var $searchModel backend\models\UserSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
@@ -22,7 +22,7 @@ $this->params['breadcrumbs'][] = $this->title;
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
         'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
+          //  ['class' => 'yii\grid\SerialColumn'],
 
             'id',
             'username',
@@ -30,14 +30,33 @@ $this->params['breadcrumbs'][] = $this->title;
             // 'password_hash',
             // 'password_reset_token',
             'email:email',
-            
+
             //'created_at',
 
-            'updated_at',
-            'roleName',
-            'statusName',
+            'updated_at:dateTime',
+            //'roleName',
+            [
+              'attribute'=>'role',
+              'filter'=>User::getItemsAlias('role'),
+              'value'=>function($model){
+                return $model->roleName;
+              }
+            ],
+            //'statusName',
+            [
+              'attribute'=>'status',
+              'filter'=>User::getItemsAlias('status'),
+              'value'=>function($model){
+                return $model->statusName;
+              }
+            ],
 
-            ['class' => 'yii\grid\ActionColumn'],
+            [
+            'class' => 'yii\grid\ActionColumn',
+            'options'=>['style'=>'width:120px;'],
+            'buttonOptions'=>['class'=>'btn btn-default'],
+            'template'=>'<div class="btn-group btn-group-sm text-center" role="group"> {view} {update} {delete} </div>'
+            ],
         ],
     ]); ?>
 
