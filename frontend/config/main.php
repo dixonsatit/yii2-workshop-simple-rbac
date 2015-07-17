@@ -12,6 +12,13 @@ return [
     'bootstrap' => ['log'],
     'controllerNamespace' => 'frontend\controllers',
     'components' => [
+        'urlManagerBackend' => [
+              'class' => 'yii\web\urlManager',
+              'baseUrl' => '/yii2/workshop/simple-rbac/backend/web/',
+              'scriptUrl'=>'/yii2/workshop/simple-rbac/backend/web/index.php',
+              'enablePrettyUrl' => false,
+              'showScriptName' => true,
+       ],
         'user' => [
             'identityClass' => 'common\models\User',
             'enableAutoLogin' => true,

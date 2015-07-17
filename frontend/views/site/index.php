@@ -9,7 +9,7 @@ $this->title = 'My Yii Application';
 
         <p class="lead">ตัวอย่างการสร้าง rbac ใช้งานแบบง่ายๆ </p>
 
-        <p><a class="btn btn-lg btn-success" href="http://www.yiiframework.com">Get started with Simple RBAC</a></p>
+        <p><a class="btn btn-lg btn-success" href="http://dixonsatit.github.io/2015/06/27/simple-rbac.html">Get started with Simple RBAC</a></p>
     </div>
 
     <div class="body-content">
